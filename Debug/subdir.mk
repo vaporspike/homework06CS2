@@ -4,12 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../MyVector.cpp \
 ../homework06.cpp 
 
 CPP_DEPS += \
+./MyVector.d \
 ./homework06.d 
 
 OBJS += \
+./MyVector.o \
 ./homework06.o 
 
 
@@ -25,7 +28,7 @@ OBJS += \
 clean: clean--2e-
 
 clean--2e-:
-	-$(RM) ./homework06.d ./homework06.o
+	-$(RM) ./MyVector.d ./MyVector.o ./homework06.d ./homework06.o
 
 .PHONY: clean--2e-
 

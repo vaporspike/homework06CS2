@@ -1,5 +1,5 @@
 #include "Graphic.hpp"
-//#include "MyVector.hpp"
+#include "MyVector.hpp"
 #include "Rectangle.hpp"
 #include "Triangle.hpp"
 
@@ -12,9 +12,6 @@ using namespace std;
 /*******************************************************************************
  * Function prototypes
 *******************************************************************************/
-
-template <typename T, typename U>
-void MyVector<T>(T* buffer, int bufferSize);
 
 template <typename T>
 void printVector(MyVector<T>&);
