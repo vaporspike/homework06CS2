@@ -13,4 +13,12 @@ class Triangle : public Graphic {
         virtual void draw() const override;
 };
 
+Triangle::Triangle(char s, int w, int h)
+: symbol(s), width(w), height(h){
+
+}
+
+Triangle::~Triangle(){
+
+}
 #endif
