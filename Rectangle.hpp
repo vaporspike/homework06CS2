@@ -11,4 +11,12 @@ class Rectangle : public Graphic {
         virtual void draw() const override;
 };
 
+Rectangle::Rectangle(char s, int w, int h)
+: symbol(s), width(w), height(h){
+
+}
+
+Rectangle::~Rectangle(){
+
+}
 #endif
