@@ -7,6 +7,8 @@
 
 #ifndef MYVECTOR_HPP_
 #define MYVECTOR_HPP_
+#include <string>
+using namespace std;
 
 // I ususally leave the names of the variables in the definition until
 // it is time to turn it in, and clean everything up at the end
@@ -25,15 +27,22 @@ public:
 	virtual ~MyVector();
 	void add(T item);
 	T back() const;
-	void find(T item);
+	int find(T item);
 	T front() const;
 	void remove(T item);
 	void reset();
 	int size() const;
 
-	// operator overloads -- these might be wrong
 	MyVector<T>& operator=(const MyVector& otherObj);
 	T& operator[](int index) const;
+
+class VectorError : MyVector<T>{
+private:
+	string e;
+public:
+	string VectorError = "";
+	string what() const;
+};
 
 };
 

@@ -376,10 +376,6 @@ void testFour() {
     }
 }
 
-template <typename T, typename U>
-T MyVector<T>(T* buffer, int bufferSize) {
-	MyVector();
-}
 
 
 
