@@ -71,11 +71,6 @@ void Graphic::setHeight(int h){
 	this->height = h;
 }
 
-void Graphic::draw() const {
-	// we'll work on this later but pretty sure dynamic_cast will be used
-	// unless there's a better method or I'm misinterpreting this
-}
-
 Graphic::IllegalDimension::IllegalDimension(string e)
 : msg(e){
 
