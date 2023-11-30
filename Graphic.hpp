@@ -30,4 +30,60 @@ class Graphic {
         };
 };
 
+Graphic::Graphic(char s, int w, int h)
+: symbol(s), width(w), height(h){
+
+}
+
+Graphic::~Graphic(){
+
+}
+
+char Graphic::getSymbol() const{
+	return symbol;
+}
+
+int Graphic::getWidth() const{
+	return width;
+}
+
+int Graphic::getHeight() const{
+	return height;
+}
+
+void Graphic::setSymbol(char s){
+	this->symbol = s;
+}
+
+void Graphic::setWidth(int w){
+	// might need dynamic_cast for triangle?
+	if (w <= 0){
+		throw IllegalDimension("Width must be positive!");
+	}
+	this->width = w;
+}
+
+void Graphic::setHeight(int h){
+	// might need dynamic_cast for triangle?
+	if (h <= 0){
+		throw IllegalDimension("Height must be positive!");
+	}
+	this->height = h;
+}
+
+void Graphic::draw() const {
+	// we'll work on this later but pretty sure dynamic_cast will be used
+	// unless there's a better method or I'm misinterpreting this
+}
+
+Graphic::IllegalDimension::IllegalDimension(string e)
+: msg(e){
+
+}
+
+string Graphic::IllegalDimension::what() const{
+	return msg;
+}
+
 #endif
+
