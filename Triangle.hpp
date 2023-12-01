@@ -29,6 +29,7 @@ void Triangle::draw() const {
 		}
 		cout << endl;
 	}
+	cout << endl;
 }
 
 void Triangle::setHeight(int h) {

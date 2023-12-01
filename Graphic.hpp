@@ -56,7 +56,6 @@ void Graphic::setSymbol(char s){
 }
 
 void Graphic::setWidth(int w){
-	// might need dynamic_cast for triangle?
 	if (w <= 0){
 		throw IllegalDimension("Width must be positive!");
 	}
@@ -64,7 +63,6 @@ void Graphic::setWidth(int w){
 }
 
 void Graphic::setHeight(int h){
-	// might need dynamic_cast for triangle?
 	if (h <= 0){
 		throw IllegalDimension("Height must be positive!");
 	}

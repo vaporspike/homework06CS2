@@ -89,58 +89,43 @@ void MyVector<T>::add(T item) {
 
 template<typename T>
  T MyVector<T>::back() const {
-	try {
 		if (bufferSize == 0) {
-		throw VectorError("Vector is empty! Cannot call back() method!\n");
+		throw VectorError("Vector is empty, cannot call back() method!");
 		}
-		else return buffer[bufferSize - 1];
-	}
-	catch (VectorError& e) {
-		cout << e.what();
-	}
-	return T();
+	return buffer[bufferSize - 1];
 }
 
 template<typename T>
- int MyVector<T>::find(T item) {
-	int index = 0;
-	for (int i = 0; i < bufferSize - 1; i++) {
-		try {
-		if (bufferSize == 0) {
-			throw VectorError("ERROR! Vector is EMPTY! Cannot call find() method!\n");
-		}
-		else if (item == buffer[i]) {
-			index = i;
-			break;
-		}
-		else throw VectorError("Item not found!\n");
-		}
-		catch (VectorError& e) {
-			cout << e.what();
-		}
-	}
-return index;
+int MyVector<T>::find(T item) {
+    if (bufferSize == 0) {
+        throw VectorError("Vector is empty, cannot call find(T) method!");
+    }
+    int index = -1;
+    for (int i = 0; i < bufferSize; i++) {
+        if (item == buffer[i]) {
+            index = i;
+            cout << i << endl;
+            break;
+        }
+    }
+    if (index == -1) {
+        throw VectorError("Given item cannot be found in find(T) method!");
+    }
+    return index;
 }
 
 template<typename T>
  T MyVector<T>::front() const {
-	try {
 		if (bufferSize == 0) {
-			throw VectorError("ERROR! Vector is empty! Cannot call front() method!\n");
-			return T();
-		}
+			throw VectorError("Vector is empty, cannot call front() method!");
 	}
-	catch (VectorError& e) {
-		cout << e.what();
-	}
-	return buffer[0];
+		return buffer[0];
 }
 
 template<typename T>
  void MyVector<T>::remove(T item) {
-	try {
 		if (bufferSize == 0 || buffer == nullptr) {
-			throw VectorError("Error! Vector is empty! Cannot call remove() method!\n");
+			throw VectorError("Vector is empty, cannot call remove(T) method!");
 		}
 		else {
 			int newBufferSize = bufferSize - 1;
@@ -148,13 +133,8 @@ template<typename T>
 			for (int i = 0; i < newBufferSize; i++) {
 				newBuffer[i] = buffer[i];
 			}
-		//	delete[] buffer;
 			newBuffer[newBufferSize - 1] = item;
 		}
-	}
-	catch (VectorError e) {
-
-	}
 }
 
 template<typename T>
@@ -184,18 +164,13 @@ MyVector<T>& MyVector<T>::operator =(const MyVector &otherObj) {
 
 template<typename T>
  T& MyVector<T>::operator [](int index) const {
-	try {
-		if (buffer == 0 || buffer == nullptr) {
-			throw VectorError("Error! Vector is empty! Cannot use [] operator!\n");
-		}
-		if (index >= bufferSize) {
-			throw VectorError("Out of bounds error!\n");
-		}
+	if (bufferSize == 0) {
+		throw VectorError("Vector is empty, cannot use [] operator!");
 	}
-	catch (VectorError& e){
-		cout << e.what();
+	else if (index >= bufferSize) {
+		throw VectorError("Out of bounds error!");
 	}
-	return buffer[index];
+	else return buffer[index];
 }
 
 template<typename T>

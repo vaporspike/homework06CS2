@@ -28,6 +28,7 @@ void Rectangle::draw() const{
 		}
 		cout << endl;
 	}
+	cout << endl;
 }
 
 #endif
